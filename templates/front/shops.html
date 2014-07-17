@@ -1,0 +1,22 @@
+{% extends "front/layout.html" %}
+{% load static %}
+
+{% block navigator %}Места продаж{% endblock %}
+
+{% block content %}
+<div id='page'>
+Открытки можно купить в Москве у моих друзей <a href='Friends-Book.ru'>Friends-Book.ru</a>
+
+<p>
+м. Чистые Пруды, м. Тургеневская, м. Сретенский Бульвар, м. Лубянка
+ул. Мясницкая, д.13, стр. 10, оф. 304
+пн-сб с 10:00 до 21:00, вс – выходной.
+</p>
+
+
+ <div class='photo'>
+         <img src='{% static 'img/map.gif' %}'>
+</div>
+
+</div>
+{% endblock %}

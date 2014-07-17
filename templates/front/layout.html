@@ -1,0 +1,41 @@
+{% load static %}
+{% load url from future %}
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="ru"> <!--<![endif]-->
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" charset="utf-8">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'django_ajax/js/jquery.ajax.min.js' %}"></script>
+        {% block js %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <div id='logo'>
+
+                <a href='/'>
+                    <img src='{% static 'img/logo.png' %}'>
+                </a>
+            </div>
+        </header>
+        <div id='navigator'>{% block navigator %}{% endblock %}</div>
+        <div id='content' class='cnt'>
+            <div id='sitebar'>
+                <div class='about'>
+                    Магазин праздничных открыток с картинками иностранных иллюстраторов
+                </div>
+                <ul>
+                    <li><a {% if action == 'my_cards' %} class='active' {% endif %} id='my_cards' href='{% url "my_cards" my_cards_hash %}'>мой список</a> <span id='count_my_cards'>({{my_cards_count}})</span></li>
+                    <li><a {% if action == 'shops' %} class='active' {% endif %} href='{% url "shops" %}'>места продаж</a></li>
+                    <li><a {% if action == 'about' %} class='active' {% endif %} href='{% url "about" %}'>о проекте</a></li>
+                </ul>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
+        <div id='footer'>&nbsp;</div>
+    </body>
+</html>

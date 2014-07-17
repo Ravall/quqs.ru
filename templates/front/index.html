@@ -1,0 +1,10 @@
+{% extends "front/layout_index.html" %}
+
+{% block navigator %}
+    {% if author_id %}
+        {{ author }}
+    {% else %}
+        <a {% if order != '-art_number' %} class='active' {% endif %}  href='{% url 'index' %}'>₪</a>
+        <a {% if order == '-art_number' %} class='active' {% endif %} href='{% url 'index' %}?order=art'>≡</a>
+    {% endif %}
+{% endblock %}

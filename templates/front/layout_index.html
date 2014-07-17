@@ -1,0 +1,47 @@
+{% extends "front/layout.html" %}
+{% load static %}
+
+
+{% block content %}
+
+    {% block form %}{% endblock %}
+    <div id='cards-left'></div>
+    <div id='loader'>&nbsp;<div id='img_loader'></div></div>
+    <div id='cards-right'></div>
+
+
+<script>
+//количество подгружаемых записей из бд
+var count = 4;
+//начиная с
+var begin = 0;
+// режим мои открытки или все открытки
+var mode = '{{mode}}';
+// массив для количества отктыток
+
+data = '{{ my_cards_count_array }}';
+var array_count = JSON.parse(data.replace(/&quot;/g,'"'));
+var art_numbers = '0';
+var order = '{{order}}';
+var author = {% if author_id  %} '{{author_id}}' {% else %} '0' {% endif %};
+var ready_query = true;
+var my_cards = '{{ my_cards_attrs_str }}';
+var my_cards_attrs = '{{ my_cards_attrs }}';
+
+var TEXT_ADD = "в список";
+var TEXT_DEL = "убрать";
+
+var time_click = 0;
+var get_mode = '{{ mode }}';
+
+var STATIC_URL = '{{STATIC_URL}}';
+
+var url_author_b = '{% url 'author_b' %}';
+var url_somecards = '{% url "somecards" %}';
+var url_add_card = '{% url "add_card" %}';
+var url_my_cards_b = '{% url "my_cards_b" %}';
+var url_card_count_change = '{% url 'my_card_count_change' %}';
+
+</script>
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

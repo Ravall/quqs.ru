@@ -1,0 +1,44 @@
+{% extends "front/layout_index.html" %}
+
+{% block navigator %}Мой список{% endblock %}
+
+{% block form %}
+{% if price > 0 %}
+<div class='formorder'>
+<form method="POST">{% csrf_token %}
+
+
+    Общая стоимость <span id='card_price'>{{price}}</span> рублей.<br/>
+    Прислать номер заказа на почту:<br/>
+    {{ form.email }}<br/>
+    <button id='order'>и забрать в магазине:</button>
+    <select>
+        <option>м. Чистые Пруды - Friends-Book.ru</option>
+    </select><br>
+
+
+<div id='form_message'>
+{% if form.errors %}
+        <div class='errors'>
+            {% for error in form.email.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+    {% else %}
+        {% if ok_id %}
+            <div class='ok'>Ваш заказ номер {{ ok_id }} будет сформирован в магазине</div>
+        {% endif %}
+    {% endif %}
+</div>
+</form>
+<div>
+    все эти открытки будут собраны сегодня в единый заказ в магазине, куда вы сможете приехать и забрать их.
+</div>
+<script type="text/javascript">
+$("button#order").click(function(){
+    $('form').submit()
+});
+</script>
+</div>
+{% endif %}
+{% endblock %}
