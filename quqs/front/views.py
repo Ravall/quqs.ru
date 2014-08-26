@@ -10,8 +10,8 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.shortcuts import get_object_or_404
 from django.utils import simplejson
 from django.shortcuts import redirect
-
-
+from templated_email import send_templated_mail
+from datetime import date
 
 def f7(seq):
     seen = set()
@@ -52,6 +52,8 @@ def index(request, author_id=0):
     )
 
 def get_mycards_price(my_cards_attrs, my_cards_count_array):
+    if not len(my_cards_attrs):
+        return 0,0
     count = 0
     for attr in my_cards_attrs.split(','):
         count += my_cards_count_array.get(str(attr), 1)
@@ -70,13 +72,22 @@ def my_cards(request, cards_hash):
 
     my_cards_hash = cards_hash
 
-    short_url = ShortLinkCardsUrl.objects.get(url_short=cards_hash)
+    try:
+        short_url = ShortLinkCardsUrl.objects.get(url_short=cards_hash)
+        my_cards_attrs = sorted(f7(short_url.url_part.split(',')))
+        attrs_str = ','.join(str(x) for x in my_cards_attrs)
+        my_cards_count = len(my_cards_attrs)
+
+    except:
+        my_cards_attrs = {}
+        short_url = ''
+        attrs_str = ''
+        my_cards_count = 0
+        count, price = 0, 0
 
 
 
-    my_cards_attrs = sorted(f7(short_url.url_part.split(',')))
-    attrs_str = ','.join(str(x) for x in my_cards_attrs)
-    my_cards_count = len(my_cards_attrs)
+
 
     my_cards_count_array = request.session.get('my_cards_count_array', {})
 
@@ -87,10 +98,29 @@ def my_cards(request, cards_hash):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
+
             order = Order(email=form.cleaned_data['email'])
-            print order
             order.save()
             order.create_order(request)
+
+
+            cards = Postcard.objects
+            cards = cards.filter(art_number__in=[int(x) for x in attrs_str.split(',')]).all()
+            context = {
+                'order_id':order.id,
+                'date':date.today(),
+                'email':form.cleaned_data['email'],
+                'price':price,
+                'cards': cards,
+            }
+            send_templated_mail(
+                'order',
+                'noreply@quqs.ru',
+                [form.cleaned_data['email']],
+                context,
+                bcc=['nikita.kachaev@gmail.com'],
+            )
+
             to_redirect = redirect('my_cards', cards_hash=cards_hash)
             to_redirect['Location'] += '?ok={0}'.format(order.id)
             return to_redirect
@@ -102,7 +132,7 @@ def my_cards(request, cards_hash):
         'front/my_cards.html',
         {
             'action':'my_cards',
-            'art_numbers': short_url.url_part,
+            'art_numbers': short_url.url_part if short_url else '' ,
             'mode': 'my_cards',
             'order':order,
             'author_id': author_id,

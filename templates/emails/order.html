@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block subject %} На сайте QUQS.ru оформлен заказ №{{ order_id }}{% endblock %}
+
+{% block plain %}
+
+{% endblock %}
+
+{% block html %}
+<p>На сайте QUQS.ru оформлен заказ</p>
+<p>
+Номер заказа: {{ order_id }}<br/>
+Дата: {{ date }}<br/>
+E-mail: {{ email }}<br/>
+Адрес доставки: Москва, ул. Мясницкая, д.13, стр. 10, оф. 304<br/>
+Готовность: заказ можно забрать сегодня. пн-сб с 10:00 до 21:00, вс – выходной.<br/>
+Сумма заказа: {{ price }} рублей<br/>
+Содержимое заказа:
+{% for card in cards %}
+    <p>
+        <img src='{{ card.pc_image }}'>
+    </p>
+{% endfor %}
+</p>
+{% endblock %}

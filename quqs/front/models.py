@@ -82,7 +82,7 @@ class Postcard(models.Model):
 
     def admin_image(self):
         if self.pc_image:
-            img = '<img src="{0}/{1}"/>'.format(settings.STATIC_URL, self.pc_image)
+            img = '<img src="{0}/{1}"/>'.format(settings.MEDIA_URL, self.pc_image)
         else:
             img = 'не загружено изображение'
         return img

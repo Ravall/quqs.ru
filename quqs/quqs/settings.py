@@ -26,6 +26,11 @@ INSTALLED_APPS += (
     'django_ajax',
     'quqs',
     'front',
+    'templated_email'
 )
 
 ALLOWED_HOSTS = []
+
+TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django'
+TEMPLATED_EMAIL_TEMPLATE_DIR = 'emails/' #use '' for top level template dir, ensure there is a trailing slash
+TEMPLATED_EMAIL_FILE_EXTENSION = 'html'

@@ -9,6 +9,12 @@ function getDocumentHeight(){
 function check_show(x) {
     return ($(document).height() - $(window).height() <= $(window).scrollTop() + x)
 }
+
+function pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length-size);
+}
+
 function print_card(val) {
     if (my_cards_attrs.indexOf(val['art']) == -1) {
         link_text = TEXT_ADD;
@@ -36,7 +42,7 @@ function print_card(val) {
             "<a class='change_list' action = '" + action + "' " +
             " href='#' art_id=" + val['art'] + ">" + link_text + "</a> | " +
             "<a href='" + url_author_b + val['author_id'] + "'>" + val['author'] + "</a>&nbsp;" +
-            val['art'] +
+            pad(val['art'], 4) +
         "</div>"
     "</div>";
 }
