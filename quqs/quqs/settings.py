@@ -29,7 +29,7 @@ INSTALLED_APPS += (
     'templated_email'
 )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['quqs.ru']
 
 TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django'
 TEMPLATED_EMAIL_TEMPLATE_DIR = 'emails/' #use '' for top level template dir, ensure there is a trailing slash
