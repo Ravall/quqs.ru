@@ -171,6 +171,7 @@ def get_some_cards(request):
 
     if author_id != False and author_id > 0:
         cards = cards.filter(autor=author_id)
+        order = '-art_number'
 
     get_mode = request.POST.get('mode')
     if get_mode == 'new_cards':

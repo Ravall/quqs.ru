@@ -5,6 +5,9 @@
 <!--[if gt IE 8]><!--><html lang="ru"> <!--<![endif]-->
 <html>
     <head>
+        <title>QUQS {% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block description %}Магазин открыток с картинками иностранных и российских иллюстраторов{% endblock %}">
+        <meta name="keywords" content="quqs cute cards. дизайнерские, эксклюзивные, необычные, небанальные, прикольные, интересные, классные, непошлые, открытки. Авторские. Дорогие">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" charset="utf-8">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -26,7 +29,7 @@
         <div id='content' class='cnt'>
             <div id='sitebar'>
                 <div class='about'>
-                    Магазин праздничных открыток с картинками иностранных иллюстраторов
+                    Магазин открыток с картинками иностранных и российских иллюстраторов. Цена 70 рублей.
                 </div>
                 <ul>
                     <li><a {% if action == 'my_cards' %} class='active' {% endif %} id='my_cards' href='{% url "my_cards" my_cards_hash %}'>мой список</a> <span id='count_my_cards'>({{my_cards_count}})</span></li>

@@ -1,6 +1,6 @@
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14pt;
+    font-size: 10pt;
     width: 1130px;
 
     margin: 0 auto;
@@ -13,6 +13,7 @@ body {
     }
 
     div#navigator {
+        padding-left: 253px;
         font-size: 25pt;
         text-align: center;
         a {
@@ -67,7 +68,9 @@ body {
 
         }
         div.formorder {
+            padding-top: 57px;
             text-align: left;
+            padding-left: 253px;
             button {
                 width: 200px;
 
@@ -80,6 +83,7 @@ body {
                 &:hover {
                     font-weight: bold;
                 }
+
             }
 
             select,input {
@@ -128,10 +132,20 @@ body {
             }
 
         }
+        div#cols{
+            padding-left: 253px;
+        }
         div#cards-left {
             float: left;
             width: 410px;
             padding-bottom: 57px;
+            text-align: right;
+            div.card {
+                text-align: right;
+                div.card_link {
+                    text-align: right;
+                }
+            }
         }
         div#loader {
             width: 57px;
@@ -145,12 +159,17 @@ body {
             float: left;
             width: 410px;
             padding-bottom: 57px;
+            text-align: left;
+            div.card {
+                text-align: left;
+                div.card_link {
+                    text-align: left;
+                }
+            }
         }
         div.card {
-            text-align: right;
             padding-top: 57px;
             div.card_link {
-                text-align: right;
                 a {
                     color:#83ACD2;
                 }
