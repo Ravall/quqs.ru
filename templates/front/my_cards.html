@@ -1,9 +1,9 @@
 {% extends "front/layout_index.html" %}
 
-{% block title %}| Мой список{% endblock %}
+{% block title %}| Моя корзина{% endblock %}
 {% block description %}Cписок моих открыток для покупки{% endblock %}
 
-{% block navigator %}Мой список{% endblock %}
+{% block navigator %}Моя корзина{% endblock %}
 
 {% block form %}
 
@@ -27,13 +27,15 @@
                 </div>
                 {% else %}
                     {% if ok_id %}
-                        <div class='ok'>Ваш заказ номер {{ ok_id }} будет сформирован в магазине</div>
+                        <div class='ok'>
+                            Ваш заказ номер {{ ok_id }}.  Его уже можно забрать в магазине, так как мы собираем набор открыток за минуту.
+                        </div>
                     {% endif %}
                 {% endif %}
             </div>
         </form>
         <div>
-            все эти открытки будут собраны сегодня в единый заказ в магазине, куда вы сможете приехать и забрать их.
+            Все эти открытки будут собраны сегодня в единый заказ в магазине, куда вы сможете приехать и забрать их.
         </div>
 
         <script type="text/javascript">

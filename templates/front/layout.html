@@ -29,13 +29,17 @@
         <div id='content' class='cnt'>
             <div id='sitebar'>
                 <div class='about'>
-                    Магазин открыток с картинками иностранных и российских иллюстраторов. Цена 70 рублей.
+                    Магазин открыток с&nbsp;картинками иностранных и&nbsp;российских иллюстраторов. Цена 70&nbsp;рублей. Всегда в&nbsp;наличии.
                 </div>
                 <ul>
-                    <li><a {% if action == 'my_cards' %} class='active' {% endif %} id='my_cards' href='{% url "my_cards" my_cards_hash %}'>мой список</a> <span id='count_my_cards'>({{my_cards_count}})</span></li>
-                    <li><a {% if action == 'shops' %} class='active' {% endif %} href='{% url "shops" %}'>места продаж</a></li>
+                    <li><a {% if action == 'my_cards' %} class='active' {% endif %} id='my_cards' href='{% url "my_cards" my_cards_hash %}'>моя корзина</a> <span id='count_my_cards'>({{my_cards_count}})</span></li>
+                    <li><a {% if action == 'shops' %} class='active' {% endif %} href='{% url "shops" %}'>где купить</a></li>
                     <li><a {% if action == 'about' %} class='active' {% endif %} href='{% url "about" %}'>о проекте</a></li>
                 </ul>
+                <div class='about'>
+                    +7 926 277-69-49 <br/>
+                    nikita@quqs.ru
+                </div>
             </div>
             {% block content %}{% endblock %}
         </div>

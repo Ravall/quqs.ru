@@ -7,12 +7,16 @@ body {
     background-color: #000;
     color: #fff;
 
+    div#logo {
+        position: fixed;
+    }
 
     a {
         color: #83ACD2;
     }
 
     div#navigator {
+        padding-top: 121px;
         padding-left: 253px;
         font-size: 25pt;
         text-align: center;
@@ -26,9 +30,10 @@ body {
     }
     div#content {
         div#sitebar {
+            position: fixed;
             width: 253px;
             float: left;
-
+            top:121px;
             div.about {
                 padding-left: 40px;
             }
@@ -124,6 +129,8 @@ body {
             }
         }
         div#page {
+
+            padding-left: 253px;
             padding-top: 57px;
             float: left;
             width: 877px;
