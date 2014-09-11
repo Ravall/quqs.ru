@@ -1,7 +1,7 @@
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 10pt;
-    width: 1130px;
+    width: 1187px;
 
     margin: 0 auto;
     background-color: #000;
@@ -13,6 +13,13 @@ body {
 
     a {
         color: #83ACD2;
+    }
+    a.mailto {
+        color: #fff;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
     }
 
     div#navigator {
@@ -140,7 +147,7 @@ body {
 
         }
         div#cols{
-            padding-left: 253px;
+            padding-left: 310px;
         }
         div#cards-left {
             float: left;
