@@ -29,7 +29,7 @@
         <div id='content' class='cnt'>
             <div id='sitebar'>
                 <div class='about'>
-                    Магазин открыток с&nbsp;картинками иностранных и&nbsp;российских иллюстраторов. Цена 70&nbsp;рублей. Всегда в&nbsp;наличии.
+                    {{ config.LEFT_TEXT }}
                 </div>
                 <ul>
                     <li><a {% if action == 'shops' %} class='active' {% endif %} href='{% url "shops" %}'>где купить</a></li>
