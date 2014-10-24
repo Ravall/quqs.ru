@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from support.settings import *
 
 if DEBUG:
@@ -26,7 +27,9 @@ INSTALLED_APPS += (
     'django_ajax',
     'quqs',
     'front',
-    'templated_email'
+    'templated_email',
+    'constance',
+    'constance.backends.database',
 )
 
 ALLOWED_HOSTS = ['quqs.ru']
@@ -34,3 +37,19 @@ ALLOWED_HOSTS = ['quqs.ru']
 TEMPLATED_EMAIL_BACKEND = 'templated_email.backends.vanilla_django'
 TEMPLATED_EMAIL_TEMPLATE_DIR = 'emails/' #use '' for top level template dir, ensure there is a trailing slash
 TEMPLATED_EMAIL_FILE_EXTENSION = 'html'
+
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'constance.context_processors.config',
+)
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_CONFIG = {
+    'LEFT_TEXT': (
+        'Открытки с картинками иностранных и российских иллюстраторов. Цена 150-200 рублей. Размер как у стандартной почтовой открытки, плотный картон.',
+        'текст слева'
+    ),
+    'MY_PHONE': ('+7 964 500-25-33', 'Номер телефона'),
+    'MY_EMAIL': ('nikita@quqs.ru', 'еmail'),
+
+}

@@ -39,8 +39,6 @@ function print_card(val) {
     return "<div class='card'>" +
         "<img src='" + STATIC_URL + val['img'] + "'>" +
         "<div class='card_link'> " +  card_count +
-            "<a class='change_list' action = '" + action + "' " +
-            " href='#' art_id=" + val['art'] + ">" + link_text + "</a> | " +
             "<a href='" + url_author_b + val['author_id'] + "'>" + val['author'] + "</a>&nbsp;" +
             pad(val['art'], 4) +
         "</div>"
