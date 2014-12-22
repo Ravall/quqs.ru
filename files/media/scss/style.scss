@@ -43,6 +43,13 @@ body {
             top:121px;
             div.about {
                 padding-left: 40px;
+                div#social_links {
+                    padding-top: 11px;
+                    div.link {
+                        float: left;
+                        padding-right: 10px;
+                    }
+                }
             }
             ul {
                 padding-left: 0px;

@@ -38,6 +38,23 @@
                 <div class='about'>
                     {{ config.MY_PHONE }} <br/>
                     <a class='mailto' href='{{ config.MY_EMAIL }}'>{{ config.MY_EMAIL }}</a>
+                    <div id='social_links'>
+                        <div class='link'>
+                            <a href='http://instagram.com/quqs.ru/' target="_blank">
+                                <img src='{% static 'img/in_.png' %}'>
+                            </a>
+                        </div>
+                        <div class='link'>
+                            <a href='https://www.facebook.com/quqs.ru/' target="_blank">
+                                <img src='{% static 'img/fb_.png' %}'>
+                            </a>
+                        </div>
+                        <div class='link'>
+                            <a href='https://vk.com/che_bel' target="_blank">
+                                <img src='{% static 'img/vk_.png' %}'>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             {% block content %}{% endblock %}
@@ -45,3 +62,4 @@
         <div id='footer'>&nbsp;</div>
     </body>
 </html>
+
