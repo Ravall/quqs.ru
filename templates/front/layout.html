@@ -29,7 +29,7 @@
         <div id='content' class='cnt'>
             <div id='sitebar'>
                 <div class='about'>
-                    {{ config.LEFT_TEXT }}
+                    {% autoescape off %}{{ config.LEFT_TEXT }}{% endautoescape %}
                 </div>
                 <ul>
                     <li><a {% if action == 'shops' %} class='active' {% endif %} href='{% url "shops" %}'>где купить</a></li>
