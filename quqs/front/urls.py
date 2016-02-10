@@ -17,8 +17,11 @@ urlpatterns = patterns('',
     url(r'^shops/$', views.shops, name='shops'),
     url(r'^about/$', views.about,  name='about'),
     url(r'^count_change/$', views.my_card_count_change, name='my_card_count_change')
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += staticfiles_urlpatterns()
+
+urlpatterns += staticfiles_urlpatterns()
+

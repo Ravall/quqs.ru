@@ -11,7 +11,7 @@ from django import forms
 from datetime import datetime
 
 
-CARD_PRICE = 70
+CARD_PRICE = 50
 
 class SubscibeForm(forms.Form):
     email = forms.EmailField(
