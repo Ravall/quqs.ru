@@ -1,6 +1,0 @@
-[submodule "submodules/control"]
-	path = submodules/control
-	url = ../control
-[submodule "submodules/semantic"]
-	path = submodules/semantic
-	url = https://github.com/twigkit/semantic.gs.git
