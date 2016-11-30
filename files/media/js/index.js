@@ -160,7 +160,7 @@ function loader()
 }
 loader();
 function scroll_check() {
-   if (check_show(57)) {
+   if (check_show(5700)) {
         loader();
     }
 }
