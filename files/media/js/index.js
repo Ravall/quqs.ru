@@ -40,7 +40,7 @@ function print_card(val) {
         "<img src='" + STATIC_URL + val['img'] + "'>" +
         "<div class='card_link'> " +  card_count +
             "<a href='" + url_author_b + val['author_id'] + "'>" + val['author'] + "</a>&nbsp;" +
-            pad(val['art'], 4) +
+            pad(val['art'], 150) +
         "</div>"
     "</div>";
 }
